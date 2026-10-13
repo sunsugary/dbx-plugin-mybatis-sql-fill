@@ -1,0 +1,11 @@
+{
+  "name": "MyBatis SQL Fill",
+  "description": "Paste MyBatis DEBUG logs and fill parameters back into SQL to get executable SQL.",
+  "icon": "assets/plugin.svg",
+  "tags": ["mybatis", "sql", "log"],
+  "permissions": [],
+  "source": "https://github.com/sunsugary/dbx-plugin-mybatis-sql-fill",
+  "homepage": "https://github.com/sunsugary/dbx-plugin-mybatis-sql-fill",
+  "license": "Apache-2.0",
+  "releaseNotes": "Initial release: parse MyBatis logs (arrows optional), type-aware parameter fill with ANSI DATE/TIMESTAMP literals, quote-aware substitution, one-click copy."
+}
