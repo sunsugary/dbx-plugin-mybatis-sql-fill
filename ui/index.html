@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyBatis SQL 还原</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="page-head">
+        <h1>MyBatis SQL 还原</h1>
+        <span class="sub">把日志里 Preparing 的 ? 用 Parameters 的参数回填，得到可直接执行的 SQL</span>
+      </header>
+
+      <section class="pane input-pane">
+        <div class="pane-head">
+          <span class="label">粘贴 MyBatis 日志（支持一次粘贴多条）</span>
+          <span class="actions">
+            <button type="button" class="btn" id="sample-btn">填入示例</button>
+            <button type="button" class="btn" id="clear-btn">清空</button>
+          </span>
+        </div>
+        <textarea id="log-input" spellcheck="false"
+placeholder="Preparing: select * from t where create_time >= ? and status = ?
+Parameters: 2026-10-06 00:00:00(String), null
+
+（行首的 ==&gt; / &lt;== 箭头有无均可，日志整行或仅 Preparing/Parameters 部分都能识别）"></textarea>
+      </section>
+
+      <section class="pane results-pane">
+        <div class="summary" id="summary" hidden><span id="summary-text"></span></div>
+        <div id="results"></div>
+      </section>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

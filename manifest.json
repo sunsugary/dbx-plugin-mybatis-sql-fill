@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/t8y2/dbx/plugin-sdk-v1/plugins/manifest.schema.json",
+  "manifest_version": 1,
+  "id": "mybatis-sql-fill",
+  "name": "MyBatis SQL Fill",
+  "version": "0.1.2",
+  "publisher": "sunsugary",
+  "description": "Paste MyBatis DEBUG logs and fill parameters back into SQL to get executable SQL.",
+  "icon": "assets/plugin.svg",
+  "source": "https://github.com/sunsugary/dbx-plugin-mybatis-sql-fill",
+  "homepage": "https://github.com/sunsugary/dbx-plugin-mybatis-sql-fill",
+  "engines": {
+    "dbx": ">=0.5.68",
+    "host_api": "1"
+  },
+  "entrypoints": {
+    "ui": {
+      "root": "ui",
+      "entry": "ui/index.html"
+    }
+  },
+  "contributions": [
+    {
+      "type": "workbench",
+      "id": "mybatis-sql-fill.workbench",
+      "label": "MyBatis SQL Fill",
+      "description": "Sandboxed frontend workbench contributed by MyBatis SQL Fill.",
+      "icon": "assets/plugin.svg"
+    }
+  ],
+  "localizations": {
+    "zh-CN": {
+      "name": "MyBatis SQL 还原",
+      "description": "粘贴 MyBatis 日志，自动把参数回填到 SQL 中，得到可直接执行的 SQL。",
+      "contributions": {
+        "mybatis-sql-fill.workbench": {
+          "label": "MyBatis SQL 还原",
+          "description": "粘贴日志，参数回填，一键复制可执行 SQL。"
+        }
+      }
+    }
+  }
+}

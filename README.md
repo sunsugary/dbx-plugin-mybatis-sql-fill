@@ -15,6 +15,32 @@
 - 一键复制回填后的 SQL（走 DBX 剪贴板桥接，自动降级）
 - 跟随 DBX 明暗主题
 
+## 开发
+
+```bash
+# 单元测试（node 即可，无需构建）
+node test/run.mjs
+
+# 本地调试宿主（打开 http://127.0.0.1:5190/）
+dbx-plugin dev --path . --port 5190
+
+# 打包（产物在 dist/，universal 跨平台）
+dbx-plugin package . --target universal
+```
+
+在 DBX 桌面端安装 `dist/*.dbxp` 需要在插件中心开启「允许安装未签名开发包」。`.dbx-dev/` 存本地调试数据，不要提交或打包。完整开发文档（Manifest、Host API、发布流程）见 [DBX 插件开发指南](https://dbxio.com/en/docs/plugin-development)。
+
+## 上架官方商店
+
+插件 ID 为 `mybatis-sql-fill`，publisher 为 `sunsugary`（上架后不可更改）。发布新版本的流程：
+
+1. 修改代码并递增 `manifest.json` 的 `version`，推送 main
+2. 打 Tag（如 `v0.1.3`）并创建 GitHub Release——`plugin-release.yml` 会自动构建 universal 候选包并生成 `release-candidates.json`
+3. 首次上架：向 `t8y2/dbx-store:main` 提交 `publishers/sunsugary.json` 和 `candidates/mybatis-sql-fill.json` 的 PR；登记进 `automation/plugin-sources.json` 后，新版本由同步 Workflow 自动建 PR
+4. 维护者审核、签名、合并后进入官方目录
+
+插件功能代码只进本仓库；不要把源码或 `.dbxp` 提交到 `t8y2/dbx`。
+
 ## 目录结构
 
 ```
